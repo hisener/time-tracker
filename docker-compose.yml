@@ -1,0 +1,6 @@
+version: "3"
+services:
+  webclient:
+    build: web-client/
+    ports:
+      - "8081:8080"
