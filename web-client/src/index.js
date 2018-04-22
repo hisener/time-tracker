@@ -1,8 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import { render } from 'react-dom'
+import Root from './containers/Root'
 import registerServiceWorker from './registerServiceWorker'
+import 'semantic-ui-css/semantic.min.css'
+import './index.css'
 
-ReactDOM.render(<App/>, document.getElementById('root'))
+render(
+  <Root/>,
+  document.getElementById('root')
+)
 registerServiceWorker()
