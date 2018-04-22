@@ -4,7 +4,13 @@ import { Button, Container, Header, Segment } from 'semantic-ui-react'
 
 import Timer from '../components/Timer'
 import BookTimeModal from '../components/BookTimeModal'
-import { startTimer, pauseTimer, stopTimer, addLog, fetchLogs } from '../actions'
+import {
+  addLog,
+  fetchLogs,
+  pauseTimer,
+  startTimer,
+  stopTimer
+} from '../actions'
 import TimeLogs from '../components/TimeLogs'
 
 class App extends Component {
@@ -88,21 +94,24 @@ class App extends Component {
         <Segment style={{textAlign: 'center'}}>
           <Timer enabled={this.props.timerEnabled}
                  totalTime={this.props.totalTime}
-                 onClick={this.handleTimerChange} />
-          <Button content='Done' icon='clock' labelPosition='left' onClick={() => { this.openModal(true)} } />
+                 onClick={this.handleTimerChange}/>
+          <Button content='Done' icon='clock' labelPosition='left'
+                  onClick={() => { this.openModal(true) }} />
         </Segment>
 
         <BookTimeModal open={this.state.modalOpen}
                        onSubmit={this.handleLogSubmit}
                        onClose={this.handleModalClose}
                        timeSpent={this.props.totalTime}
-                       fillTimeSpent={this.state.fillTimeSpent} />
+                       fillTimeSpent={this.state.fillTimeSpent}/>
 
         <Segment>
           <Header size='medium'>Logs</Header>
-          <Button content='Add Log' icon='add to calendar' onClick={() => { this.openModal(false)} } />
+          <Button content='Add Log' icon='add to calendar'
+                  onClick={() => { this.openModal(false) }} />
 
-          <TimeLogs data={this.props.data} totalPages={this.props.totalPages} onChange={this.handleLogsChange} />
+          <TimeLogs data={this.props.data} totalPages={this.props.totalPages}
+                    onChange={this.handleLogsChange} />
         </Segment>
       </Container>
     )

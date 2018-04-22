@@ -18,8 +18,8 @@ class BookTimeModal extends Component {
   }
 
   handleChange (event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+    const { name, value } = event.target
+    this.setState({ [name]: value })
   }
 
   handleSubmit () {
@@ -42,10 +42,11 @@ class BookTimeModal extends Component {
 
   render () {
     let { open, onClose, timeSpent, fillTimeSpent } = this.props
-    timeSpent = (fillTimeSpent) ? moment.duration(timeSpent).format('hh:mm:ss', { trim: false }) : ''
+    timeSpent = fillTimeSpent
+      ? moment.duration(timeSpent).format('hh:mm:ss', { trim: false }) : ''
 
     return (
-      <Modal open={open} onClose={onClose} >
+      <Modal open={open} onClose={onClose}>
         <Modal.Header>Book Time</Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.handleSubmit}>
@@ -58,17 +59,20 @@ class BookTimeModal extends Component {
             <Form.Field>
               <label>Time spent (hh:mm or hh:mm:ss)</label>
               <Input type='text' name='timeSpent' defaultValue={timeSpent}
-                     pattern='[\d]{2,}:[\d]{2}(:[\d]{2})?' onChange={this.handleChange}
+                     pattern='[\d]{2,}:[\d]{2}(:[\d]{2})?'
+                     onChange={this.handleChange}
                      placeholder='Time spent (ie: 02:30)' required />
             </Form.Field>
             <Form.Field>
               <label>Date</label>
-              <Input type='datetime-local' name='dateTime' onChange={this.handleChange}
-                     defaultValue={new Date().toISOString().slice(0, -8)} required />
+              <Input type='datetime-local' name='dateTime'
+                     onChange={this.handleChange}
+                     defaultValue={new Date().toISOString().slice(0, -8)}
+                     required />
             </Form.Field>
 
-            <Button type='submit' positive labelPosition='right' icon='checkmark'
-                    content='Submit' />
+            <Button type='submit' positive labelPosition='right'
+                    icon='checkmark' content='Submit' />
           </Form>
         </Modal.Content>
       </Modal>

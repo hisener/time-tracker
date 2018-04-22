@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 
 render(
-  <Root/>,
+  <Root />,
   document.getElementById('root')
 )
 registerServiceWorker()

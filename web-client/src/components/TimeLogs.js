@@ -27,12 +27,13 @@ class TimeLogs extends Component {
 
       return (
         <List.Item key={log.id}>
-          {(shouldRenderDate) ?
-            <Divider horizontal>{moment(log.dateTime).format('D MMMM')}</Divider>
-            : ''}
+          {shouldRenderDate
+            ? <Divider horizontal>{ moment(log.dateTime).format('D MMMM') }</Divider>
+            : ''
+          }
           <List.Content floated='right'>
             {moment.duration(log.timeSpent).format('hh:mm:ss')}
-            </List.Content>
+          </List.Content>
           <List.Content>{log.description}</List.Content>
         </List.Item>
       )
@@ -49,14 +50,17 @@ class TimeLogs extends Component {
     return (
       <span>
         <Input size='small' icon='search' onChange={this.handleFilterChange}
-               placeholder='Search...' style={{float:'right'}}  />
+               placeholder='Search...' style={{float: 'right'}} />
 
         {this.logItems()}
 
         <div style={{textAlign: 'center'}}>
           <Pagination
             defaultActivePage={1}
-            ellipsisItem={{ content: <Icon name='ellipsis horizontal' />, icon: true }}
+            ellipsisItem={{
+              content: <Icon name='ellipsis horizontal' />,
+              icon: true
+            }}
             firstItem={{ content: <Icon name='angle double left' />, icon: true }}
             lastItem={{ content: <Icon name='angle double right' />, icon: true }}
             prevItem={{ content: <Icon name='angle left' />, icon: true }}

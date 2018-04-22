@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch'
 import { REST_API_URL } from '../constants'
 
 export const REQUEST_LOGS = 'REQUEST_LOGS'
@@ -25,7 +26,7 @@ export function stopTimer () {
   }
 }
 
-export function addLog(log) {
+export function addLog (log) {
   return (dispatch, getState) => {
     let options = {
       method: 'POST',
@@ -40,7 +41,7 @@ export function addLog(log) {
   }
 }
 
-export function fetchLogs(filter = '', page = 1) {
+export function fetchLogs (filter = '', page = 1) {
   return (dispatch, getState) => {
     dispatch(requestLogs(filter, page))
 
@@ -50,7 +51,7 @@ export function fetchLogs(filter = '', page = 1) {
   }
 }
 
-function requestLogs(filter, page) {
+function requestLogs (filter, page) {
   return {
     type: REQUEST_LOGS,
     filter,
@@ -58,7 +59,7 @@ function requestLogs(filter, page) {
   }
 }
 
-function receiveLogs(filter, page, json) {
+function receiveLogs (filter, page, json) {
   return {
     type: RECEIVE_LOGS,
     filter,

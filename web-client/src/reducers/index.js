@@ -1,6 +1,12 @@
 import { combineReducers } from 'redux'
 
-import { START_TIMER, PAUSE_TIMER, STOP_TIMER, REQUEST_LOGS, RECEIVE_LOGS } from '../actions'
+import {
+  PAUSE_TIMER,
+  RECEIVE_LOGS,
+  REQUEST_LOGS,
+  START_TIMER,
+  STOP_TIMER
+} from '../actions'
 
 function timer (state = {
   enabled: false,

@@ -63,6 +63,7 @@ MONGO_URI=mongodb://yourmongouri:port mvn spring-boot:run
 
 # To run front-end in development mode
 cd web-client/
+npm install
 npm start # It opens a tab (localhost:3000)
 ```
 
