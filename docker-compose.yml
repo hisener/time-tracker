@@ -1,6 +1,32 @@
 version: "3"
 services:
-  webclient:
-    build: web-client/
+  restapi:
+    build: rest-api/
     ports:
       - "8081:8080"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/timetracker
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+
+  webclient:
+    build:
+      context: web-client/
+      args:
+        - REACT_APP_API_URL=http://localhost:8081/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - restapi
+
+  mongodb:
+    image: mongo:3.6-jessie
+
+  mongo-seed:
+    build: ./mongo-seed
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
