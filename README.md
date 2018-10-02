@@ -25,7 +25,7 @@ A simple time tracking application built with Spring MVC and ReactJS.
 
 ### Prerequisites
 
-- Docker
+- Docker (17.05 or higher)
 - Docker compose
 
 ```bash
