@@ -6,11 +6,13 @@ import Timer from '../components/Timer'
 import BookTimeModal from '../components/BookTimeModal'
 import {
   addLog,
-  fetchLogs,
+  fetchLogs
+} from '../actions/logActions'
+import {
   pauseTimer,
   startTimer,
   stopTimer
-} from '../actions'
+} from '../actions/timerActions'
 import TimeLogs from '../components/TimeLogs'
 
 class App extends Component {
